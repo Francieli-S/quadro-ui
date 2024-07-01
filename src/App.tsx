@@ -1,34 +1,40 @@
-import { useCallback, useState } from 'react'
-import './App.css'
-import { Card } from './components/Card'
-import { AddCard } from './components/AddCard'
+// import { useCallback, useState } from 'react';
+import './App.css';
+
+import { ListCards } from './components/ListCards';
+import { Box, Grid } from '@mui/material';
 
 function App() {
+  // interface List {
+  //   title: string;
+  // }
 
-  interface Card {
-    title: string
-  }
+  // const [lists, setLists] = useState<List[]>([]);
 
-  const [cards, setCards] = useState<Card[]>([])
-
-  const addCard = useCallback((title: string) => {
-    setCards((prev) => [
-      {
-        title,
-      },
-      ...prev,
-    ])
-  }, [])
+  // const addList = useCallback((title: string) => {
+  //   setLists((prev) => [
+  //     {
+  //       title,
+  //     },
+  //     ...prev,
+  //   ]);
+  // }, []);
 
   return (
-    <>
-      <AddCard onAdd={addCard}/>
-      {cards.map((card) => (
-        <Card {...card} />
-      ))}
-      
-    </>
-  )
+    <Box>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={12}>
+          <ListCards />
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ListCards />
+        </Grid>
+        <Grid item xs={12} md={3}>
+          <ListCards />
+        </Grid>
+      </Grid>
+    </Box>
+  );
 }
 
-export default App
+export default App;
