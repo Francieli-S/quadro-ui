@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Box, Grid } from '@mui/material';
 
 export interface CardProps {
   title: string;
@@ -6,8 +7,14 @@ export interface CardProps {
 
 export const Card: FC<CardProps> = ({ title }) => {
   return (
-    <>
-      <h1>{title}</h1>
-    </>
+    <Box
+      sx={{ backgroundColor: 'yellow', padding: '10px', borderRadius: '5px' }}
+    >
+      <Grid container>
+        <Grid item xs={12}>
+          {title}
+        </Grid>
+      </Grid>
+    </Box>
   );
 };

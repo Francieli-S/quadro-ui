@@ -31,16 +31,18 @@ export const ListCards = () => {
 
   return (
     <Box sx={{ backgroundColor: 'cornflowerBlue' }}>
-      <Grid container direction='column'>
-        <h1>List</h1>
-        <Grid item>
+      <Grid container direction={'column'} rowSpacing={2} alignItems='center'>
+        <Grid item xs={12}>
+          <h1>List</h1>
+        </Grid>
+        <Grid item xs={12}>
           <AddCard onAdd={addCard} />
         </Grid>
-        <Grid item>
-          {cards.map((card) => (
+        {cards.map((card) => (
+          <Grid item xs={2}>
             <Card {...card} />
-          ))}
-        </Grid>
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );
